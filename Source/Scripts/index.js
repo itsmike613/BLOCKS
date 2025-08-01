@@ -1,6 +1,6 @@
 let seeds = [];
 
-fetch('Source/Data/seeds.json')
+fetch('./Source/Data/seeds.json')
     .then(response => response.json())
     .then(data => {
         seeds = data;
