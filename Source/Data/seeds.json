@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Cradle Peak",
+        "edition": "Java",
+        "version": "1.21",
+        "seed": "888882903781400170",
+        "spawnBiome": "Plains",
+        "surroundingBiomes": ["Plains", "Taiga Bay"],
+        "surroundingStructures": ["Plains Village", "Desert Temple"],
+        "hiddenStructures": ["End Portal"],
+        "images": [
+            "https://images2.imgbox.com/5e/12/qkpT7AI8_o.png",
+            "https://images2.imgbox.com/5e/12/qkpT7AI8_o.png"
+        ]
+    },
+    {
+        "name": "Mystic Valley",
+        "edition": "Pocket",
+        "version": "1.22",
+        "seed": "123456789012345678",
+        "spawnBiome": "Forest",
+        "surroundingBiomes": ["Forest", "River"],
+        "surroundingStructures": ["Woodland Mansion", "Outpost"],
+        "hiddenStructures": ["Stronghold"],
+        "images": [
+            "https://images2.imgbox.com/5e/12/qkpT7AI8_o.png",
+            "https://images2.imgbox.com/5e/12/qkpT7AI8_o.png"
+        ]
+    }
+]
