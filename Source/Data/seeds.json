@@ -1,29 +1,41 @@
 [
     {
         "name": "Cradle Peak",
-        "edition": "Java",
-        "version": "1.21",
-        "seed": "888882903781400170",
-        "spawnBiome": "Plains",
-        "surroundingBiomes": ["Plains", "Taiga Bay"],
-        "surroundingStructures": ["Plains Village", "Desert Temple"],
-        "hiddenStructures": ["End Portal"],
-        "images": [
+        "world": {
+            "edition": "Java",
+            "version": "1.21",
+            "seed": "888882903781400170"
+        },
+        "spawn": {
+            "biome": "Plains"
+        },
+        "surro": {
+            "biomes": ["Plains", "Taiga Bay"],
+            "structures": ["Plains Village", "Desert Temple"],
+            "hidden": ["End Portal"]
+        },
+        "image": [
             "https://images2.imgbox.com/5e/12/qkpT7AI8_o.png",
             "https://images2.imgbox.com/5e/12/qkpT7AI8_o.png"
         ]
     },
     {
-        "name": "Mystic Valley",
-        "edition": "Pocket",
-        "version": "1.22",
-        "seed": "123456789012345678",
-        "spawnBiome": "Forest",
-        "surroundingBiomes": ["Forest", "River"],
-        "surroundingStructures": ["Woodland Mansion", "Outpost"],
-        "hiddenStructures": ["Stronghold"],
-        "images": [
-            "https://images2.imgbox.com/5e/12/qkpT7AI8_o.png",
+        "name": "Test",
+        "world": {
+            "edition": "Java",
+            "version": "1.22",
+            "seed": "1234"
+        },
+        "spawn": {
+            "biome": "Taiga"
+        },
+        "surro": {
+            "biomes": ["Taiga Bay"],
+            "structures": ["Desert Temple"],
+            "hidden": ["End Portal"]
+        },
+        "image": [
+            "https://i.ibb.co/6Jp5C8S4/Screenshot-2025-07-31-182436.png",
             "https://images2.imgbox.com/5e/12/qkpT7AI8_o.png"
         ]
     }

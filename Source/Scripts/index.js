@@ -17,14 +17,14 @@ function displaySeeds(seedsToDisplay) {
         card.innerHTML = `
             <div class="card">
                 <div class="h-25 overflow-hidden">
-                    <img src="${seed.images[0]}" class="card-img-top object-fit-cover bg-no-repeat w-100">
+                    <img src="${seed.image[0]}" class="card-img-top object-fit-cover bg-no-repeat w-100">
                 </div>
                 <div class="p-3 d-flex align-items-center justify-content-between gap-6 border-0 py-2">
                     <div class="d-flex align-items-center gap-3 my-1">
-                        <img class="avatar object-fit-cover" src="${seed.images[0]}">
+                        <img class="avatar object-fit-cover" src="${seed.image[0]}">
                         <div>
                             <span class="d-block text-heading text-sm fw-semibold">${seed.name}</span>
-                            <span class="d-sm-block text-muted text-xs">${seed.edition} • ${seed.version}</span>
+                            <span class="d-sm-block text-muted text-xs">${seed.world.edition} • ${seed.world.version}</span>
                         </div>
                     </div>
                     <button class="btn btn-sm btn-dark view-seed" data-seed-name="${seed.name}">View</button>
@@ -67,13 +67,13 @@ function applyFilters() {
 
     if (selectedEditions.length > 0) {
         filteredSeeds = filteredSeeds.filter(seed =>
-            selectedEditions.includes(seed.edition.toLowerCase())
+            selectedEditions.includes(seed.world.edition.toLowerCase())
         );
     }
 
     if (selectedVersions.length > 0) {
         filteredSeeds = filteredSeeds.filter(seed =>
-            selectedVersions.includes(seed.version)
+            selectedVersions.includes(seed.world.version)
         );
     }
 
@@ -90,19 +90,19 @@ function displaySeedDetails(seed) {
     noSeedMessage.classList.add('d-none');
 
     document.querySelector('#details .seed-name').textContent = seed.name;
-    document.querySelector('#details .seed-edition-version').textContent = `${seed.edition} • ${seed.version}`;
-    document.querySelector('#details .seed-image').src = seed.images[0];
-    document.querySelector('#gameCollapse .edition-input').value = seed.edition;
-    document.querySelector('#gameCollapse .version-input').value = seed.version;
-    document.querySelector('#gameCollapse .seed-input').value = seed.seed;
-    document.querySelector('#spawnCollapse .spawn-biome-input').value = seed.spawnBiome;
-    document.querySelector('#surroundingsCollapse .surrounding-biomes-input').value = seed.surroundingBiomes.join(', ');
-    document.querySelector('#surroundingsCollapse .surrounding-structures-input').value = seed.surroundingStructures.join(', ');
-    document.querySelector('#surroundingsCollapse .hidden-structures-input').value = seed.hiddenStructures.join(', ');
+    document.querySelector('#details .seed-edition-version').textContent = `${seed.world.edition} • ${seed.world.version}`;
+    document.querySelector('#details .seed-image').src = seed.image[0];
+    document.querySelector('#gameCollapse .edition-input').value = seed.world.edition;
+    document.querySelector('#gameCollapse .version-input').value = seed.world.version;
+    document.querySelector('#gameCollapse .seed-input').value = seed.world.seed;
+    document.querySelector('#spawnCollapse .spawn-biome-input').value = seed.spawn.biome;
+    document.querySelector('#surroundingsCollapse .surrounding-biomes-input').value = seed.surro.biomes.join(', ');
+    document.querySelector('#surroundingsCollapse .surrounding-structures-input').value = seed.surro.structures.join(', ');
+    document.querySelector('#surroundingsCollapse .hidden-structures-input').value = seed.surro.hidden.join(', ');
 
     const carouselInner = document.querySelector('#galleryCarousel .carousel-inner');
     carouselInner.innerHTML = '';
-    seed.images.forEach((image, index) => {
+    seed.image.forEach((image, index) => {
         const item = document.createElement('div');
         item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
         item.innerHTML = `<img src="${image}" class="d-block w-100 rounded" style="max-height: 300px; object-fit: cover;">`;
@@ -118,7 +118,7 @@ function displaySeedDetails(seed) {
 function copyHandler(event) {
     const input = event.currentTarget.previousElementSibling;
     navigator.clipboard.writeText(input.value).then(() => {
-        console.log('Copied to clipboard:', input.value); // I'll remove this later after I make sure it works.
+        console.log('Copied to clipboard:', input.value);
     });
 }
 
