@@ -116,7 +116,7 @@ function displaySeedDetails(seed) {
 }
 
 function copyHandler(event) {
-    const input = event.currentTarget.previousElementSibling.querySelector('input');
+    const input = event.currentTarget.previousElementSibling;
     navigator.clipboard.writeText(input.value).then(() => {
         console.log('Copied to clipboard:', input.value); // I'll remove this later after I make sure it works.
     });
