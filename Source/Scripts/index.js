@@ -109,6 +109,21 @@ function displaySeedDetails(seed) {
         carouselInner.appendChild(item);
     });
 
+    const chunkbaseVersion = seed.world.version.replace(/\./g, '_');
+    const chunkbaseEdition = seed.world.edition.toLowerCase();
+    const chunkbaseUrl = `https://www.chunkbase.com/apps/seed-map#seed=${seed.world.seed}&platform=${chunkbaseEdition}_${chunkbaseVersion}&dimension=overworld&x=0&z=0&zoom=0`;
+
+    const mcseedmapEdition = seed.world.edition === 'Pocket' ? 'Bedrock' : seed.world.edition;
+    const mcseedmapUrl = `https://mcseedmap.net/${seed.world.version}-${mcseedmapEdition}/${seed.world.seed}#x=0&z=0&l=0`;
+
+    const appsCardBody = document.querySelector('#appsCollapse .card-body');
+    appsCardBody.innerHTML = `
+        <div class="d-flex gap-2">
+            <a href="${chunkbaseUrl}" target="_blank" class="btn btn-sm btn-primary">Open in Chunkbase</a>
+            <a href="${mcseedmapUrl}" target="_blank" class="btn btn-sm btn-primary">Open in mcseedmap.net</a>
+        </div>
+    `;
+
     document.querySelectorAll('#gameCollapse .btn-icon').forEach(button => {
         button.removeEventListener('click', copyHandler);
         button.addEventListener('click', copyHandler);
