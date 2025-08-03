@@ -88,10 +88,12 @@ function applyFilters() {
 	let filtered = seeds;
 	const search = searchInput.value.toLowerCase();
 	if (search) filtered = filtered.filter(s => s.name.toLowerCase().includes(search));
-	Object.keys(filterConfig).forEach(cat => {
-			const selected = Array.from(document.querySelectorAll(`#filters input[id^="${cat}"]:checked`)).map(cb => cb.id);
-			if (selected.length) {
-			filtered = filtered.filter(s => selected.includes(cat === 'edition' ? s.world.edition.toLowerCase() : s.world.version));
+	Object.entries(filterConfig).forEach(([cat, { options }]) => {
+		const selected = Array.from(document.querySelectorAll(`#filters input:checked`))
+		.filter(cb => options.some(opt => opt.id === cb.id))
+		.map(cb => cb.id);
+		if (selected.length) {
+		filtered = filtered.filter(s => selected.includes(cat === 'edition' ? s.world.edition.toLowerCase() : s.world.version));
 		}
 	});
 	displaySeeds(filtered);
